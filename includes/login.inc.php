@@ -15,6 +15,7 @@ class Login
     public function login()
     {
         $user = $this->checkCredentials();
+        echo $user;
         if ($user) {
             $this->user = $user;
 			session_start();
@@ -24,7 +25,8 @@ class Login
             $_SESSION['email'] = $user['email'];
             $_SESSION['address'] = $user['address'];
             $_SESSION['no_tlp'] = $user['no_tlp'];
-            return $user['full_name'];
+            //return $user['full_name'];
+            return true;
         }
         return false;
     }
